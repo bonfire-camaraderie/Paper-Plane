@@ -6,7 +6,7 @@
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1560.76, 16.1713 )
+extents = Vector2( 763.488, 16.1713 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20.4076, 325.49 )
@@ -43,11 +43,11 @@ texture = ExtResource( 1 )
 position = Vector2( 113.805, -54.1045 )
 
 [node name="Barier Horizontal Top" type="CollisionShape2D" parent="Vertical Bariers"]
-position = Vector2( 1437.73, 42.4045 )
+position = Vector2( 644.776, 40.1324 )
 shape = SubResource( 1 )
 
 [node name="Barier Horizontal Bottom" type="CollisionShape2D" parent="Vertical Bariers"]
-position = Vector2( 1445.52, 669.666 )
+position = Vector2( 638.934, 667.394 )
 rotation = 3.14159
 shape = SubResource( 1 )
 
