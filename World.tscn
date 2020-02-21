@@ -1,16 +1,23 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sky Background.png" type="Texture" id=1]
 [ext_resource path="res://paper plane skin.png" type="Texture" id=2]
 [ext_resource path="res://Plane Body.gd" type="Script" id=3]
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=4]
 [ext_resource path="res://Object Spawner.gd" type="Script" id=5]
+[ext_resource path="res://Score.gd" type="Script" id=6]
+[ext_resource path="res://GOODDC__.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://Score.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 763.488, 16.1713 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20.4076, 325.49 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+font_data = ExtResource( 7 )
 
 [node name="World" type="Node"]
 
@@ -65,5 +72,34 @@ script = ExtResource( 5 )
 
 [node name="fireBall" type="Node" parent="Object Spawner"]
 
-[node name="Timer" type="Timer" parent="Object Spawner"]
-[connection signal="timeout" from="Object Spawner/Timer" to="Object Spawner" method="_on_Timer_timeout"]
+[node name="Fire_Ball_Spawn_Timer" type="Timer" parent="Object Spawner"]
+
+[node name="Score" type="Control" parent="."]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score_Timer" type="Timer" parent="Score"]
+
+[node name="TextureRect" type="TextureRect" parent="Score"]
+margin_left = 1161.33
+margin_top = 7.4686
+margin_right = 1488.33
+margin_bottom = 71.4686
+texture = ExtResource( 8 )
+
+[node name="Score_Label" type="Label" parent="Score"]
+margin_left = 1236.1
+margin_top = 23.1
+margin_right = 1336.1
+margin_bottom = 53.1
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="Object Spawner/Fire_Ball_Spawn_Timer" to="Object Spawner" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Score/Score_Timer" to="Score" method="_on_Timer_timeout"]

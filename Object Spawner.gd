@@ -1,7 +1,7 @@
 extends Node
 
 const fireBall = preload("res://Fire_Ball.tscn")
-onready var timer = get_node("Timer")
+onready var timer = get_node("Fire_Ball_Spawn_Timer")
 var objectPosition = Vector2()
 
 func _ready():
